@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 from starlette.requests import Request
 from typing import Dict
+import time
 
 @serve.deployment
 class Model:
@@ -12,6 +13,7 @@ class Model:
             self.model = pickle.load(f)
 
     async def __call__(self, starlette_request: Request) -> Dict:
+        time.sleep(1)
         payload = await starlette_request.json()
         input_vector = [
             payload["data"]["x1"],

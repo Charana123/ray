@@ -8,7 +8,7 @@ from typing import Dict
 @serve.deployment
 class Model:
     def __init__(self):
-        with open("/home/charana/Documents/ray/rayserve/model.pkl", "rb") as f:
+        with open("./model.pkl", "rb") as f:
             self.model = pickle.load(f)
 
     async def __call__(self, starlette_request: Request) -> Dict:

@@ -3,7 +3,7 @@
 import_path: model_deployment:model
 
 runtime_env:
-
+    working_dir: "https://github.com/Charana123/ray/archive/HEAD.zip"
 
 host: 0.0.0.0
 

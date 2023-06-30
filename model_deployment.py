@@ -24,6 +24,7 @@ class Model:
 		payload["data"]["x6"]
 	    ]
 	    input_vector = np.transpose(input_vector)
+	    input_vector = np.nan_to_num(input_vector, nan=np.inf)
 	    prediction = self.model.predict(input_vector)
 	    return {"success": true, "data": prediction}
 	except Exception as e:

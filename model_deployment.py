@@ -13,17 +13,20 @@ class Model:
             self.model = pickle.load(f)
 
     async def __call__(self, starlette_request: Request) -> Dict:
-        payload = await starlette_request.json()
-        input_vector = [
-            payload["data"]["x1"],
-            payload["data"]["x2"],
-            payload["data"]["x3"],
-            payload["data"]["x4"],
-            payload["data"]["x5"],
-            payload["data"]["x6"]
-        ]
-        input_vector = np.transpose(input_vector)
-        prediction = self.model.predict(input_vector)
-        return {"tail grade g/t": prediction}
+	try:
+	    payload = await starlette_request.json()
+	    input_vector = [
+		payload["data"]["x1"],
+		payload["data"]["x2"],
+		payload["data"]["x3"],
+		payload["data"]["x4"],
+		payload["data"]["x5"],
+		payload["data"]["x6"]
+	    ]
+	    input_vector = np.transpose(input_vector)
+	    prediction = self.model.predict(input_vector)
+	    return {"success": true, "data": prediction}
+	except Exception as e:
+	    return {"success": false, "error": e.message}
 
 model = Model.bind()

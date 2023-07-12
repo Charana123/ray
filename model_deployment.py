@@ -3,6 +3,7 @@ from ray import serve
 import pickle
 import numpy as np
 from starlette.requests import Request
+from starlette.responses import JSONResponse
 from typing import Dict
 import time
 
@@ -24,10 +25,12 @@ class Model:
 				payload["data"]["x6"]
 			]
 			input_vector = np.transpose(input_vector)
-			input_vector = np.nan_to_num(input_vector, nan=np.inf)
+			input_vector = np.array(input_vector, dtype=np.float64)
+			#input_vector = np.nan_to_num(input_vector, nan=np.inf)
+			#print(input_vector)
 			prediction = self.model.predict(input_vector)
 			return {"success": True, "data": prediction}
 		except Exception as e:
-			return {"success": False, "error": e.message}
+			return {"success": False, "error": str(e)}
 
 model = Model.bind()

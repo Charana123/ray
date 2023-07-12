@@ -1,0 +1,48 @@
+{
+    "resource": "predict",
+    "accesskey": "30a2d1d1d62ca5bceb8bdffac23ddb410e052f19019b0a28784fb0ed766c8f1d531e8a5b655cf2ee3194ed916af7b60e957dc839fbedf60bf6ef9050697efb09",
+    "data": {
+        "x1": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "x2": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "x3": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "x4": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "x5": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "x6": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+}
